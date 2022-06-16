@@ -37,12 +37,8 @@ class Camera:
       ret, frame = video_capture.read()
       if(not ret or frame is None):
         return
-      (h, w) = frame.shape[:2]
-      (cX, cY) = (w // 2, h // 2)
-      # rotate our img_msg by 45 degrees around the center of the img_msg
-      M = cv2.getRotationMatrix2D((cX, cY), -180, 1.0)
-      rotated = cv2.warpAffine(frame, M, (w, h))
-      img_msg = self.bridge.cv2_to_imgmsg(rotated, "bgr8")
+      frame = frame[::-1,::-1]
+      img_msg = self.bridge.cv2_to_imgmsg(frame, "bgr8")
       self.publish(img_msg)
 
   def publish(self, cap):
