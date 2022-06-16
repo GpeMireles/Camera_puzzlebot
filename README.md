@@ -1,3 +1,2 @@
 # Camera_puzzlebot
-ROS node 
-Read the cam and publish an Image type message in a topic called "/video" 
+ROS node that reads the cam and publishes an Image type message in a topic called "/video" 
