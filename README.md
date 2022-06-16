@@ -1,2 +1,3 @@
 # Camera_puzzlebot
-Read raspicam 
+ROS node 
+Read the cam and publish an Image type message in a topic called "/video" 
